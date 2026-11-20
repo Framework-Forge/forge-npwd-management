@@ -1,0 +1,1325 @@
+.forge-mgmt-app {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  
+  --bg: #071015;
+  --panel: #111d25;
+  --panel2: #15232d;
+  --line: #253640;
+  --muted: #91a0aa;
+  --green: #10b981;
+  --green2: #059669;
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+}
+
+.forge-mgmt-app, .forge-mgmt-app * {
+  box-sizing: border-box;
+}
+
+.forge-mgmt-app button, .forge-mgmt-app input, .forge-mgmt-app select, .forge-mgmt-app textarea {
+  font: inherit;
+}
+
+.forge-mgmt-app {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background: radial-gradient(circle at 80% 0, #0a2520 0, transparent 35%), #071015;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.forge-mgmt-app .scroll {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-mgmt-app .scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.forge-mgmt-app .header {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #16262f;
+  background: rgba(7, 16, 21, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .header strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.forge-mgmt-app .headerSpacer {
+  flex: 1;
+}
+
+.forge-mgmt-app .iconBtn {
+  border: 0;
+  background: transparent;
+  color: #cbd5e1;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.forge-mgmt-app .iconBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #10b981;
+}
+
+.forge-mgmt-app .spinning {
+  animation: forge-spin 0.8s linear infinite;
+}
+
+@keyframes forge-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.forge-mgmt-app .jobSelectContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(17, 29, 37, 0.9);
+  border: 1px solid #253640;
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.forge-mgmt-app .jobSelect {
+  background: transparent;
+  border: none;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.forge-mgmt-app .jobSelect option {
+  background: #111d25;
+  color: #f8fafc;
+}
+
+.forge-mgmt-app .forgeMark, .forge-mgmt-app .roundIcon, .forge-mgmt-app .permIcon {
+  display: grid;
+  place-items: center;
+  color: var(--green);
+}
+
+.forge-mgmt-app .hero {
+  padding: 16px 16px 12px;
+  background: linear-gradient(160deg, rgba(6, 78, 59, 0.45), rgba(7, 16, 21, 0.6));
+  border-bottom: 1px solid #182a33;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .brand, .forge-mgmt-app .bigBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+}
+
+.forge-mgmt-app .brand svg, .forge-mgmt-app .bigBrand svg {
+  width: 26px;
+  height: 26px;
+}
+
+.forge-mgmt-app .brand div, .forge-mgmt-app .bigBrand div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.forge-mgmt-app .brand b, .forge-mgmt-app .bigBrand b {
+  letter-spacing: 2px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.forge-mgmt-app .brand small, .forge-mgmt-app .bigBrand small {
+  font-size: 8px;
+  letter-spacing: 3px;
+  color: #a8b4ba;
+}
+
+.forge-mgmt-app .org {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.forge-mgmt-app .org h1 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: #ffffff;
+}
+
+.forge-mgmt-app .org p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.forge-mgmt-app .seal {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #059669;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #34d399;
+  background: #064e3b;
+}
+
+.forge-mgmt-app main {
+  padding: 14px 14px 24px;
+  flex: 1;
+}
+
+.forge-mgmt-app .card {
+  background: linear-gradient(145deg, var(--panel2), #0e1920);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 13px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app h1, .forge-mgmt-app h2, .forge-mgmt-app h3, .forge-mgmt-app p {
+  margin-top: 0;
+}
+
+.forge-mgmt-app h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.forge-mgmt-app h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 14px 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+}
+
+.forge-mgmt-app .muted {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.forge-mgmt-app .stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 14px;
+  border: 1px solid #293c46;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.forge-mgmt-app .stats > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px;
+  border-right: 1px solid #293c46;
+  background: rgba(17, 29, 37, 0.7);
+}
+
+.forge-mgmt-app .stats .wide {
+  grid-column: 1 / -1;
+  border-top: 1px solid #293c46;
+  border-right: 0;
+}
+
+.forge-mgmt-app .stats svg {
+  color: var(--green);
+  width: 20px;
+}
+
+.forge-mgmt-app .stats span {
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-mgmt-app .stats small {
+  font-size: 10px;
+  color: #9aa7ae;
+}
+
+.forge-mgmt-app .stats b {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.forge-mgmt-app .quick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.forge-mgmt-app .quick button, .forge-mgmt-app .actions button, .forge-mgmt-app .financeBtns button {
+  min-height: 42px;
+  border: 1px solid #2a3a44;
+  background: #101b22;
+  color: #eaf0f3;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.forge-mgmt-app .quick button:active, .forge-mgmt-app .actions button:active, .forge-mgmt-app .financeBtns button:active {
+  filter: brightness(0.85);
+}
+
+.forge-mgmt-app .quick svg {
+  width: 17px;
+}
+
+.forge-mgmt-app .bottom {
+  height: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #1c2d36;
+  background: #091218;
+  flex: none;
+}
+
+.forge-mgmt-app .bottom button {
+  border: 0;
+  background: transparent;
+  color: #87959d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .bottom button.active {
+  color: var(--green);
+}
+
+.forge-mgmt-app .search {
+  height: 40px;
+  border: 1px solid #30434e;
+  background: #14222b;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+}
+
+.forge-mgmt-app .chips {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .chips span {
+  font-size: 10px;
+  padding: 6px 10px;
+  background: #111c23;
+  border: 1px solid #23343e;
+  border-radius: 6px;
+  color: #aeb9bf;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .chips .selected {
+  color: #ffffff;
+  border-color: var(--green2);
+  background: #0b2e23;
+}
+
+.forge-mgmt-app .chips b {
+  background: #263943;
+  border-radius: 10px;
+  padding: 2px 6px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+.forge-mgmt-app .chips .selected b {
+  background: var(--green2);
+  color: #fff;
+}
+
+.forge-mgmt-app .list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.forge-mgmt-app .member, .forge-mgmt-app .grade {
+  width: 100%;
+  border: 1px solid #20323c;
+  background: #0f1a21;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #1b3830, #0c201a);
+  font-weight: 800;
+  font-size: 12px;
+  color: #a7f3d0;
+  border: 1px solid #059669;
+}
+
+.forge-mgmt-app .avatar.big {
+  width: 58px;
+  height: 58px;
+  font-size: 18px;
+}
+
+.forge-mgmt-app .memberText, .forge-mgmt-app .grade > span, .forge-mgmt-app .history span, .forge-mgmt-app .perm span, .forge-mgmt-app .transactions span {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.forge-mgmt-app .memberText b, .forge-mgmt-app .grade b {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.forge-mgmt-app .memberText small, .forge-mgmt-app .grade small, .forge-mgmt-app .history small, .forge-mgmt-app .perm small, .forge-mgmt-app .transactions small {
+  font-size: 11px;
+  color: #8998a1;
+  margin-top: 2px;
+}
+
+.forge-mgmt-app .status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.forge-mgmt-app .status::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .status.online, .forge-mgmt-app .online {
+  color: #60a5fa;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid #2563eb;
+}
+
+.forge-mgmt-app .status.online::before, .forge-mgmt-app .online::before {
+  background: #3b82f6;
+  box-shadow: 0 0 6px #60a5fa;
+}
+
+.forge-mgmt-app .status.offline, .forge-mgmt-app .offline {
+  color: #f87171;
+  background: rgba(69, 26, 28, 0.45);
+  border: 1px solid #b91c1c;
+}
+
+.forge-mgmt-app .status.offline::before, .forge-mgmt-app .offline::before {
+  background: #ef4444;
+  box-shadow: 0 0 4px #ef4444;
+}
+
+/* Jogadores Próximos na Contratação */
+.forge-mgmt-app .nearbySection {
+  margin: 12px 0;
+  background: #0b151b;
+  border: 1px solid #1e2e38;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.forge-mgmt-app .nearbyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.forge-mgmt-app .nearbyHeader span {
+  font-size: 11px;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.forge-mgmt-app .nearbyRefreshBtn {
+  background: #162630;
+  border: 1px solid #283e4c;
+  color: #94a3b8;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.forge-mgmt-app .nearbyRefreshBtn:hover {
+  background: #203544;
+  color: #fff;
+}
+
+.forge-mgmt-app .nearbyList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.forge-mgmt-app .nearbyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111e26;
+  border: 1px solid #233742;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.forge-mgmt-app .nearbyItem:hover {
+  background: #182c38;
+  border-color: #3b82f6;
+}
+
+.forge-mgmt-app .nearbyItem.selected {
+  background: #0e2942;
+  border-color: #60a5fa;
+}
+
+.forge-mgmt-app .nearbyItemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-mgmt-app .nearbyItemInfo b {
+  font-size: 12px;
+  color: #f1f5f9;
+}
+
+.forge-mgmt-app .nearbyItemInfo small {
+  font-size: 10px;
+  color: #8da2af;
+}
+
+.forge-mgmt-app .nearbyDistanceBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+/* Cofre Físico (Apenas Leitura) */
+.forge-mgmt-app .readOnlyBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.forge-mgmt-app .readOnlyBanner svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.forge-mgmt-app .registerGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.forge-mgmt-app .registerCard {
+  background: #0e1920;
+  border: 1px solid #1e303b;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forge-mgmt-app .registerCardInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-mgmt-app .registerCardInfo b {
+  font-size: 13px;
+  color: #f1f5f9;
+}
+
+.forge-mgmt-app .registerCardInfo small {
+  font-size: 10px;
+  color: #8da2af;
+}
+
+.forge-mgmt-app .registerCardBalance {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.forge-mgmt-app .profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.forge-mgmt-app .profile h2 {
+  margin: 0;
+}
+
+.forge-mgmt-app .memberMeta {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 4px 14px;
+}
+
+.forge-mgmt-app .memberMeta span {
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-mgmt-app .memberMeta small {
+  color: #8998a1;
+  font-size: 10px;
+}
+
+.forge-mgmt-app .memberMeta b {
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.forge-mgmt-app .green {
+  color: var(--green) !important;
+}
+
+.forge-mgmt-app .red {
+  color: var(--red) !important;
+}
+
+.forge-mgmt-app .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.forge-mgmt-app .actions .primary, .forge-mgmt-app .financeBtns .primary {
+  border-color: #059669;
+  background: #064e3b;
+  color: #a7f3d0;
+}
+
+.forge-mgmt-app .actions .blue {
+  color: #93c5fd;
+  border-color: #1d4ed8;
+  background: #1e3a8a;
+}
+
+.forge-mgmt-app .actions .purple {
+  color: #c4b5fd;
+  border-color: #6d28d9;
+  background: #4c1d95;
+}
+
+.forge-mgmt-app .actions .danger {
+  color: #fca5a5;
+  border-color: #991b1b;
+  background: #451a1c;
+}
+
+.forge-mgmt-app .wideBtn {
+  grid-column: 1 / -1;
+}
+
+.forge-mgmt-app .history {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.forge-mgmt-app .history + .history {
+  border-top: 1px solid #24343d;
+}
+
+.forge-mgmt-app .history svg {
+  color: #d5aa48;
+  width: 20px;
+}
+
+.forge-mgmt-app .hireIntro {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.forge-mgmt-app .roundIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #064e3b;
+  border: 1px solid #059669;
+}
+
+.forge-mgmt-app .roundIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.forge-mgmt-app label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  margin: 12px 0;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.forge-mgmt-app input, .forge-mgmt-app select, .forge-mgmt-app textarea {
+  background: #111d25;
+  color: #eaf0f3;
+  border: 1px solid #2b3d47;
+  border-radius: 8px;
+  padding: 10px;
+  outline: 0;
+}
+
+.forge-mgmt-app textarea {
+  height: 80px;
+  resize: none;
+}
+
+.forge-mgmt-app .info {
+  border: 1px solid #1e3a8a;
+  background: #0f172a;
+  color: #93c5fd;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.forge-mgmt-app .cta {
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #04130e;
+  font-weight: 800;
+  margin-top: 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.forge-mgmt-app .right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 9px;
+}
+
+.forge-mgmt-app .outline {
+  border: 1px solid #059669;
+  background: #064e3b;
+  color: #a7f3d0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .rank {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #152832;
+  display: grid;
+  place-items: center;
+  color: #d6a846;
+}
+
+.forge-mgmt-app .rank svg {
+  width: 20px;
+}
+
+.forge-mgmt-app .grade em {
+  font-style: normal;
+  font-size: 10px;
+  background: #1a2a33;
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-weight: 700;
+}
+
+.forge-mgmt-app .balance {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.forge-mgmt-app .balance > svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: #064e3b;
+  color: var(--green);
+  border-radius: 10px;
+  border: 1px solid #059669;
+}
+
+.forge-mgmt-app .balance h1 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 2px 0;
+}
+
+.forge-mgmt-app .financeBtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.forge-mgmt-app .sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.forge-mgmt-app .sectionTitle h3 {
+  margin: 0;
+}
+
+.forge-mgmt-app .sectionTitle span {
+  font-size: 11px;
+  color: var(--green);
+  cursor: pointer;
+}
+
+.forge-mgmt-app .transactions > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 2px;
+  border-bottom: 1px solid #182932;
+}
+
+.forge-mgmt-app .transactions strong {
+  font-size: 11px;
+}
+
+.forge-mgmt-app .txIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.forge-mgmt-app .txIcon svg {
+  width: 16px;
+}
+
+.forge-mgmt-app .txIcon.in {
+  background: #064e3b;
+  color: var(--green);
+}
+
+.forge-mgmt-app .txIcon.out {
+  background: #451a1c;
+  color: var(--red);
+}
+
+.forge-mgmt-app .tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #293a44;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.forge-mgmt-app .tabs button {
+  padding: 9px;
+  border: 0;
+  background: #17242c;
+  color: #9ba8af;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .tabs .active {
+  background: var(--green2);
+  color: #ffffff;
+}
+
+.forge-mgmt-app .perm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid #22343d;
+}
+
+.forge-mgmt-app .permIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: #064e3b;
+}
+
+.forge-mgmt-app .permIcon svg {
+  width: 16px;
+}
+
+.forge-mgmt-app .perm b {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.forge-mgmt-app .toggle {
+  width: 32px;
+  height: 18px;
+  border-radius: 10px;
+  background: #32434c;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .toggle i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d7e0e4;
+  transition: margin 0.2s;
+}
+
+.forge-mgmt-app .toggle.on {
+  background: var(--green2);
+}
+
+.forge-mgmt-app .toggle.on i {
+  margin-left: 14px;
+}
+
+.forge-mgmt-app .indivHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1c2b33;
+}
+
+.forge-mgmt-app .indivInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.forge-mgmt-app .badgeCustom {
+  font-size: 10px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.15);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.forge-mgmt-app .badgeDefault {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.forge-mgmt-app .more {
+  min-height: 100%;
+  padding-top: 24px;
+  position: relative;
+}
+
+.forge-mgmt-app .close {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  border: 0;
+  background: transparent;
+  color: #a9b5bb;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .bigBrand {
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+
+.forge-mgmt-app .bigBrand svg {
+  width: 38px;
+  height: 38px;
+}
+
+.forge-mgmt-app .bigBrand b {
+  font-size: 22px;
+}
+
+.forge-mgmt-app .more > h3, .forge-mgmt-app .more > p {
+  text-align: center;
+}
+
+.forge-mgmt-app .menuList {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.forge-mgmt-app .menuList button {
+  border: 0;
+  border-left: 2px solid transparent;
+  background: transparent;
+  color: #b8c3c9;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.forge-mgmt-app .menuList button:first-child {
+  background: #111e25;
+  border-left-color: var(--green);
+  color: var(--green);
+}
+
+.forge-mgmt-app .more .card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.forge-mgmt-app .powered {
+  font-size: 9px;
+  color: #6f7e86;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.forge-mgmt-app /* --- Restricted / Error Screen --- */
+.restrictedScreen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 20px;
+  gap: 16px;
+}
+
+.forge-mgmt-app .restrictedIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.forge-mgmt-app .restrictedScreen h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.forge-mgmt-app .restrictedScreen p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 260px;
+}
+
+.forge-mgmt-app /* --- Candidates & Applications --- */
+.candidateItem {
+  width: 100%;
+  border: 1px solid #20323c;
+  background: #0f1a21;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.forge-mgmt-app .candidateItem:hover {
+  background: #14222b;
+  border-color: #2c424f;
+}
+
+.forge-mgmt-app .candidateScore {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.forge-mgmt-app .candidateScore.passed {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.forge-mgmt-app .candidateScore.failed {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.forge-mgmt-app .status.pending {
+  background: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.forge-mgmt-app .status.accepted {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.forge-mgmt-app .status.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.forge-mgmt-app .candidateAnswers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.forge-mgmt-app .candidateAnswer {
+  background: #0b1419;
+  border: 1px solid #1c2b33;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.forge-mgmt-app .candidateAnswer small {
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.forge-mgmt-app .candidateAnswer b {
+  color: #f1f5f9;
+  font-size: 12px;
+}
+
+.forge-mgmt-app /* --- Modals & Overlays --- */
+.modalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.forge-mgmt-app .modalContent {
+  width: 100%;
+  max-width: 320px;
+  background: #111d25;
+  border: 1px solid #233642;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.forge-mgmt-app .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forge-mgmt-app .modalHeader h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.forge-mgmt-app .modalClose {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+
+.forge-mgmt-app .modalFooter {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.forge-mgmt-app .modalFooter button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+}
+
+.forge-mgmt-app .modalFooter .cancelBtn {
+  background: #1e2c35;
+  color: #cbd5e1;
+}
+
+.forge-mgmt-app .modalFooter .confirmBtn {
+  background: var(--green2);
+  color: #fff;
+}
+
+.forge-mgmt-app .modalFooter .dangerBtn {
+  background: var(--red);
+  color: #fff;
+}
+
+.forge-mgmt-app .emptyState {
+  text-align: center;
+  padding: 30px 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
